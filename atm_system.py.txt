@@ -1,0 +1,25 @@
+class ATM:
+    def __init__(self, acc_name, password, balance): # constructor It runs automatically when an object is created
+        self.acc_name = acc_name                     # store the account name inside the object.
+        self.password = password                     # Stores the password for that account.
+        self.balance = balance                       # Stores the starting balance for that user.
+
+    def show_balance(self):
+        print(f"Balance: {self.balance}")
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Deposited: {amount}")
+
+    def withdraw(self, amount):
+        if amount > self.balance:                    # Checks if user is trying to withdraw more than available.
+            print("Insufficient Balance")
+        else:
+            self.balance -= amount                   # Subtracts withdrawn money from balance.
+            print(f"Withdrawn: {amount}")
+
+user1 = ATM("Pooja", "1234", 1500)
+user1.show_balance()
+user1.deposit(1000)
+user1.withdraw(2000)
+user1.show_balance()
